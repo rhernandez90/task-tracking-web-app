@@ -22,6 +22,7 @@ import {
 } from '@nebular/theme';
 import { BaseComponent } from './base/base.component';
 import { FormsModule } from '@angular/forms';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent, BaseComponent],
@@ -43,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
   ],
+  providers : [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {
