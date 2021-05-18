@@ -2,8 +2,11 @@
   <div class="card card-container">
     <br>
 
-    <h1 id="title" class="title">Login</h1>
-    <p class="sub-title">Hello! Log in with your User Name.</p>
+    <h1 id="title" class="title" *ngIf="isLoggedIn">Welcome</h1>
+    <p class="sub-title" *ngIf="isLoggedIn">{{ user }}</p>
+
+    <h1 id="title" class="title" *ngIf="!isLoggedIn">Login</h1>
+    <p class="sub-title" *ngIf="!isLoggedIn">Hello! Log in with your User Name.</p>
     <!-- <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" /> -->
     <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
