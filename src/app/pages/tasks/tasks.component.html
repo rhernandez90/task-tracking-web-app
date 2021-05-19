@@ -1,1 +1,43 @@
-<p>tasks works!</p>
+<nb-card>
+    <nb-card-header>
+      Tasks
+    </nb-card-header>
+  
+    <nb-card-body>
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Complete Date</th>
+                <th scope="col">Status</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of tasks">
+                <td>{{item.id}}</td>
+                <td>{{item.taskName}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.note}}</td>
+                <td>{{item.startDate | date: 'yyyy-MM-dd mm:ss'}}</td>
+                <td>{{item.endDate | date: 'yyyy-MM-dd mm:ss'}}</td>
+                <td>{{item.completeDate | date: 'yyyy-MM-dd mm:ss'}}</td>
+                <td>{{item.status}}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+          
+
+
+
+
+    </nb-card-body>
+  </nb-card>
