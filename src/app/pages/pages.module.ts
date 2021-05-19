@@ -11,6 +11,8 @@ import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ProjectService } from '../Services/Project/project.service';
+import { TasksComponent } from './tasks/tasks.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -20,12 +22,14 @@ import { ProjectService } from '../Services/Project/project.service';
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   declarations: [
     PagesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TasksComponent
   ],
 })
 export class PagesModule {

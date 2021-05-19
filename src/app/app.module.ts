@@ -23,10 +23,12 @@ import {
 import { BaseComponent } from './base/base.component';
 import { FormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent, BaseComponent],
   imports: [
+    RouterModule,
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
