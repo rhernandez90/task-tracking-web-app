@@ -10,6 +10,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { FormsModule } from '@angular/forms';
+import { ProjectService } from '../Services/Project/project.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     PagesComponent,
     LoginComponent,
-    RegisterComponent    
+    RegisterComponent
   ],
 })
 export class PagesModule {
