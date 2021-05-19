@@ -6,14 +6,14 @@
       <h5 class="card-title">{{item.name}}</h5>
       <p class="card-text">{{item.description}}</p>
 
-   
-        <a  [routerLink]="['/pages/tasks', item.id]" routerLinkActive="active">
-          Go
-        </a>
-      
+
+      <button class="btn btn-primary" (click)="goToTasks(item.id)">
+        Go
+      </button>
+
 
     </div>
-  
+
   </div>
 
 

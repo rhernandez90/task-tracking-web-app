@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators' ;
 import { SolarData } from '../../@core/data/solar';
@@ -20,7 +21,8 @@ export class DashboardComponent implements OnDestroy,OnInit {
   projects : Array<any> = [];
 
   constructor(
-    private _projectService : ProjectService
+    private _projectService : ProjectService,
+    private router : Router
   ) {
 
 
@@ -32,6 +34,15 @@ export class DashboardComponent implements OnDestroy,OnInit {
       this.projects = res.data;
       console.log( res);
     })
+  }
+
+  goToTasks(id : number){
+    let navigationExtras: NavigationExtras = {
+			queryParams: {
+				"id": id
+			}
+		};
+    this.router.navigate(['/pages/tasks'], navigationExtras)
   }
 
   ngOnDestroy() {

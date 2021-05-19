@@ -20,7 +20,7 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
-      path: 'tasks/:taskId',
+      path: 'tasks',
       component: TasksComponent
     },
     {
