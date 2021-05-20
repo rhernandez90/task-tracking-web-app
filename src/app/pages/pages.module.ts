@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbMenuModule, NbUserModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbIconModule, NbMenuModule, NbUserModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -28,6 +28,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     NbCardModule,
     Ng2SmartTableModule,
     NbUserModule,
+    NbIconModule,
+    NbButtonModule,
   ],
   declarations: [
     PagesComponent,
