@@ -16,7 +16,7 @@
                 <th scope="col">End Date</th>
                 <th scope="col">Complete Date</th>
                 <th scope="col">Status</th>
-
+                <th scope="col">Resource</th>
               </tr>
             </thead>
             <tbody>
@@ -29,6 +29,15 @@
                 <td>{{item.endDate | date: 'yyyy-MM-dd mm:ss'}}</td>
                 <td>{{item.completeDate | date: 'yyyy-MM-dd mm:ss'}}</td>
                 <td>{{item.status}}</td>
+                <td>
+
+                  <span *ngFor="let person of item.persons">
+                    <nb-user  [name]="person.name" >
+                    </nb-user>                    
+                  </span>
+
+
+                </td>
 
               </tr>
 
