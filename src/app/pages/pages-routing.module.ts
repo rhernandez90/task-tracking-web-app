@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { AddProjectModalComponent } from './dashboard/add-project-modal/add-project-modal.component';
 
 const routes: Routes = [{
   path: '',
@@ -16,12 +17,16 @@ const routes: Routes = [{
       component: ECommerceComponent,
     },
     {
-      path: 'iot-dashboard',
+      path: 'project-dashboard',
       component: DashboardComponent,
     },
     {
       path: 'tasks',
       component: TasksComponent
+    },
+    {
+      path: 'project/create',
+      component: AddProjectModalComponent
     },
     {
       path: 'layout',

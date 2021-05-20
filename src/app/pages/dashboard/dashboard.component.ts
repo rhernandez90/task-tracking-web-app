@@ -45,6 +45,10 @@ export class DashboardComponent implements OnDestroy,OnInit {
     this.router.navigate(['/pages/tasks'], navigationExtras)
   }
 
+  goToCreateProject(){
+    this.router.navigate(['/pages/project/create'])
+  }
+
   ngOnDestroy() {
     
   }

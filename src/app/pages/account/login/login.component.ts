@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../Services/authentication/login/login.service';
 import { TokenStorageService } from '../../../Services/authentication/TokenStorage/token-storage.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.component.html',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _authService : LoginService,
-    private _tokenStorage : TokenStorageService
+    private _tokenStorage : TokenStorageService,
+    private router : Router
   ) { 
 
   }
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this._tokenStorage.getUser().roles;
       this.user = `${this._tokenStorage.getUser().firstName} ${this._tokenStorage.getUser().lastName}`
+      this.router.navigate(['/pages/project-dashboard'])
     }
   }
 
