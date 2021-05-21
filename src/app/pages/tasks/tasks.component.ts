@@ -12,6 +12,7 @@ export class TasksComponent implements OnInit {
 
   project : number = 0;
   tasks : Array<any> = [];
+  status : number = 1;
 
   constructor(
     private _projectService : ProjectService,
@@ -24,18 +25,21 @@ export class TasksComponent implements OnInit {
 
     this.route.queryParams.subscribe((params) => {
       this.project  = params["id"];
-      this.loadTasks(this.project)
+      this.loadTasks()
     })
 
 
   }
 
-  loadTasks(projectId : number){
-    this._projectService.GetTasks(projectId).subscribe( res =>{
+  loadTasks(){
+    this._projectService.GetTasksByStatus(this.project, this.status).subscribe( res =>{
       this.tasks = res.data;
     })
   }
 
+  ChangingValue(){
+    this.loadTasks();
+  }
 
 
 }
