@@ -8,10 +8,10 @@
 
   <br>
 
-  <div class="card ml-1" style="width: 18rem;" *ngFor="let item of projects">
+  <div class="card ml-2 mt-2" style="width: 18rem;" *ngFor="let item of projects" [style.background] = "item.backgroundColor">
     <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div class="card-body">
-      <h5 class="card-title">{{item.name}}</h5>
+      <h5 class="card-title" >{{item.name}}</h5>
       <p class="card-text">{{item.description}}</p>
 
 

@@ -11,7 +11,8 @@ export class AddProjectModalComponent implements OnInit {
 
   projectForm: any = {
     name: null,
-    description: null
+    description: null,
+    backgroundColor : '#2cce6a'
   };
 
   constructor(
@@ -26,6 +27,7 @@ export class AddProjectModalComponent implements OnInit {
   }
 
   onSubmit() : void {
+
     this._projectService.Create(this.projectForm).subscribe(res => {
       this.router.navigate(['/pages/project-dashboard']);
     })
