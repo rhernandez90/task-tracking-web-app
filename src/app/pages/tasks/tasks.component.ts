@@ -3,12 +3,18 @@ import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../Services/Project/project.service';
 import { SmartTableData } from '../../@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CreateTaskComponent } from './create/create.component';
 @Component({
   selector: 'ngx-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
+
+  bsModalRef: BsModalRef;
+
+
 
   project : number = 0;
   tasks : Array<any> = [];
@@ -17,6 +23,7 @@ export class TasksComponent implements OnInit {
   constructor(
     private _projectService : ProjectService,
     private route: ActivatedRoute,
+    private modalService: BsModalService
   ) {
 
    }
@@ -48,6 +55,12 @@ export class TasksComponent implements OnInit {
       this.loadAllTasksByStatus();
     else 
       this.loadTasksByStatus();
+  }
+
+  openModalWithComponent() {
+
+    this.bsModalRef = this.modalService.show(CreateTaskComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 
 

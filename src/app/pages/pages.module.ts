@@ -14,7 +14,8 @@ import { ProjectService } from '../Services/Project/project.service';
 import { TasksComponent } from './tasks/tasks.component';
 import { RouterModule } from '@angular/router';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CreateTaskComponent } from './tasks/create/create.component';
 @NgModule({
   imports: [
     PagesRoutingModule,
@@ -30,12 +31,14 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     NbUserModule,
     NbIconModule,
     NbButtonModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     PagesComponent,
     LoginComponent,
     RegisterComponent,
-    TasksComponent
+    TasksComponent,
+    CreateTaskComponent
   ],
 })
 export class PagesModule {
