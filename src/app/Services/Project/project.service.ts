@@ -25,6 +25,10 @@ export class ProjectService extends BaseComponent {
     return this.http.get(`${this.API_URL}/Project/${id}`);
   }
 
+  GetAllTasksByStatus(id : number): Observable<any> {
+    return this.http.get(`${this.API_URL}/Project/${id}/all-tasks`);
+  }
+
   GetTasksByStatus(id : number, status): Observable<any> {
     return this.http.get(`${this.API_URL}/Project/${id}/Tasks?status=${status}`);
   }

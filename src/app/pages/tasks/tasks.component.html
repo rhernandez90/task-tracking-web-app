@@ -11,55 +11,72 @@
     <div class="row">
 
       <div class="col-md-2">
-        <select class='form-control' 
-        (change)="ChangingValue()" [(ngModel)]="status">
+        <select class='form-control' (change)="loadTasks()" [(ngModel)]="status">
+          <option value='0'>All</option>
           <option value='1'>Pending</option>
           <option value='2'>In Progress</option>
           <option value='3'>Done</option>
           <option value='3'>Rejected</option>
         </select>
       </div>
-  
+
+      <div class="col-md-1">
+
+        <button class="btn btn-primary btn-circle btn-md">
+          <i class="fas fa-plus"></i>
+        </button>
+
+      </div>
+
     </div>
 
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <th scope="col">Notes</th>
-          <th scope="col">Start Date</th>
-          <th scope="col">End Date</th>
-          <th scope="col">Complete Date</th>
-          <th scope="col">Status</th>
-          <th scope="col">Resource</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of tasks">
-          <td>{{item.id}}</td>
-          <td>{{item.taskName}}</td>
-          <td>{{item.description}}</td>
-          <td>{{item.note}}</td>
-          <td>{{item.startDate | date: 'yyyy-MM-dd mm:ss'}}</td>
-          <td>{{item.endDate | date: 'yyyy-MM-dd mm:ss'}}</td>
-          <td>{{item.completeDate | date: 'yyyy-MM-dd mm:ss'}}</td>
-          <td>{{item.status}}</td>
-          <td>
+    <div class="row" >
+      
+      <div class="col-md-12 mt-4">
 
-            <span *ngFor="let person of item.persons">
-              <nb-user [name]="person.name">
-              </nb-user>
-            </span>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Notes</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+              <th scope="col">Complete Date</th>
+              <th scope="col">Status</th>
+              <th scope="col">Resource</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of tasks">
+              <td>{{item.id}}</td>
+              <td>{{item.taskName}}</td>
+              <td>{{item.description}}</td>
+              <td>{{item.note}}</td>
+              <td>{{item.startDate | date: 'yyyy-MM-dd mm:ss'}}</td>
+              <td>{{item.endDate | date: 'yyyy-MM-dd mm:ss'}}</td>
+              <td>{{item.completeDate | date: 'yyyy-MM-dd mm:ss'}}</td>
+              <td>{{item.status}}</td>
+              <td>
+  
+                <span *ngFor="let person of item.persons">
+                  <nb-user [name]="person.name">
+                  </nb-user>
+                </span>
+  
+  
+              </td>
+  
+            </tr>
+  
+          </tbody>
+        </table>
 
+      </div>
 
-          </td>
+    </div>
 
-        </tr>
-
-      </tbody>
-    </table>
 
 
 

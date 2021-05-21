@@ -12,7 +12,7 @@ export class TasksComponent implements OnInit {
 
   project : number = 0;
   tasks : Array<any> = [];
-  status : number = 1;
+  status : number = 0;
 
   constructor(
     private _projectService : ProjectService,
@@ -31,14 +31,23 @@ export class TasksComponent implements OnInit {
 
   }
 
-  loadTasks(){
+  loadTasksByStatus(){
     this._projectService.GetTasksByStatus(this.project, this.status).subscribe( res =>{
       this.tasks = res.data;
     })
   }
 
-  ChangingValue(){
-    this.loadTasks();
+  loadAllTasksByStatus(){
+    this._projectService.GetAllTasksByStatus(this.project).subscribe( res =>{
+      this.tasks = res.data;
+    })
+  }
+
+  loadTasks(){
+    if(this.status  == 0)
+      this.loadAllTasksByStatus();
+    else 
+      this.loadTasksByStatus();
   }
 
 
