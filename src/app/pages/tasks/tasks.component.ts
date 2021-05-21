@@ -5,6 +5,7 @@ import { SmartTableData } from '../../@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CreateTaskComponent } from './create/create.component';
+import { TaskDto } from '../../Services/Tasks/Dto/TasksDto';
 @Component({
   selector: 'ngx-tasks',
   templateUrl: './tasks.component.html',
@@ -31,7 +32,7 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.queryParams.subscribe((params) => {
-      this.project  = params["id"];
+      this.project  = parseInt(params["id"]);
       this.loadTasks()
     })
 
@@ -58,8 +59,15 @@ export class TasksComponent implements OnInit {
   }
 
   openModalWithComponent() {
+    let newTask = new TaskDto();
+    newTask.projectId = this.project;
 
-    this.bsModalRef = this.modalService.show(CreateTaskComponent);
+    const initialState = {
+      TaskForm : newTask
+
+    };
+
+    this.bsModalRef = this.modalService.show(CreateTaskComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 

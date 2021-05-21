@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseComponent } from '../../base/base.component';
+import { TaskDto } from './Dto/TasksDto';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +26,8 @@ export class TaskService extends BaseComponent {
   }
 
 
-  Create(taskData : any): Observable<any> {
-    return this.http.post(`${this.API_URL}/Task`,taskData);
+  Create(taskData : TaskDto): Observable<TaskDto> {
+    return this.http.post<TaskDto>(`${this.API_URL}/Task`,taskData);
   }
 
   Delete(id : number): Observable<any> {
