@@ -8,6 +8,7 @@ import { CreateTaskComponent } from './create/create.component';
 import { TaskDto } from '../../Services/Tasks/Dto/TasksDto';
 import { PersonService } from '../../Services/Person/person.service';
 import { PersonDto } from '../../Services/Person/Dto/PersonDto';
+import { EditTaskComponent } from './edit/edit.component';
 @Component({
   selector: 'ngx-tasks',
   templateUrl: './tasks.component.html',
@@ -63,15 +64,27 @@ export class TasksComponent implements OnInit {
 
   openModalWithComponent() {
     let newTask = new TaskDto();
+    let now = new Date();
     newTask.projectId = this.project;
-    newTask.startDate = new Date();
-    newTask.endDate = new Date();
+    newTask.startDate = now.toISOString();
+    newTask.endDate = now.toISOString();
     const initialState = {
       TaskForm : newTask
 
     };
 
     this.bsModalRef = this.modalService.show(CreateTaskComponent, {initialState});
+    this.bsModalRef.onHidden.subscribe( res =>{
+        this.loadTasks();
+    })
+  }
+
+  openEditModal( item : TaskDto){
+
+    const initialState = {
+      TaskForm : {...item}
+    }
+    this.bsModalRef = this.modalService.show(EditTaskComponent, {initialState});
     this.bsModalRef.onHidden.subscribe( res =>{
         this.loadTasks();
     })

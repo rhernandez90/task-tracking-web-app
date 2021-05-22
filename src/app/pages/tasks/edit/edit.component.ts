@@ -6,11 +6,12 @@ import { TaskDto } from '../../../Services/Tasks/Dto/TasksDto';
 import { TaskService } from '../../../Services/Tasks/task.service';
 
 @Component({
-  selector: 'ngx-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  selector: 'ngx-task-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
 })
-export class CreateTaskComponent implements OnInit {
+export class EditTaskComponent implements OnInit {
+
 
   TaskForm: TaskDto;
   persons : Array<PersonDto> = [];
@@ -39,9 +40,11 @@ export class CreateTaskComponent implements OnInit {
 
   onSubmit(){
     
+    
     this._taskService.Create(this.TaskForm).subscribe( res => {
       this.bsModalRef.hide();
     });
 
   }
+
 }

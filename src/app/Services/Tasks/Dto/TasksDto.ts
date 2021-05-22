@@ -3,8 +3,8 @@ export class TaskDto {
     taskName : string;
     description :string;
     status : number;
-    startDate : Date;
-    endDate : Date;
+    startDate : string;
+    endDate : string;
     completeDate : Date;
     note : string;
     projectId : number;

@@ -46,6 +46,7 @@
               <th scope="col">Complete Date</th>
               <th scope="col">Status</th>
               <th scope="col">Resource</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -59,13 +60,19 @@
               <td>{{item.completeDate | date: 'yyyy-MM-dd mm:ss'}}</td>
               <td>{{item.status}}</td>
               <td>
-  
+
                 <span *ngFor="let person of item.persons">
                   <nb-user [name]="person.name">
                   </nb-user>
                 </span>
+              </td>
+
+              <td>
   
-  
+                <i href="#" (click)="openEditModal(item)">
+                  <i class="fas fa-edit"></i>
+                </i>
+
               </td>
   
             </tr>
