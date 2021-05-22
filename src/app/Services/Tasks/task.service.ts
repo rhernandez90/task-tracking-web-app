@@ -26,8 +26,9 @@ export class TaskService extends BaseComponent {
   }
 
 
-  Create(taskData : TaskDto): Observable<TaskDto> {
-    return this.http.post<TaskDto>(`${this.API_URL}/Task`,taskData);
+  Create(taskData : TaskDto): Observable<any> {
+    taskData.assignedPerson = parseInt(taskData.assignedPerson.toString());
+    return this.http.post<any>(`${this.API_URL}/Task`,taskData);
   }
 
   Delete(id : number): Observable<any> {

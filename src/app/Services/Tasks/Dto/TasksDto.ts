@@ -9,4 +9,5 @@ export class TaskDto {
     note : string;
     projectId : number;
     projectName : string;
+    assignedPerson :  number;
 }

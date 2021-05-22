@@ -31,6 +31,7 @@ import { CreateTaskComponent } from './tasks/create/create.component';
     NbUserModule,
     NbIconModule,
     NbButtonModule,
+    
     ModalModule.forRoot()
   ],
   declarations: [
