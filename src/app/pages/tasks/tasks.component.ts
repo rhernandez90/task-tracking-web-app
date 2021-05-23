@@ -66,8 +66,8 @@ export class TasksComponent implements OnInit {
     let newTask = new TaskDto();
     let now = new Date();
     newTask.projectId = this.project;
-    newTask.startDate = now.toISOString();
-    newTask.endDate = now.toISOString();
+    newTask.startDate = now.toISOString().slice(0, 16);
+    newTask.endDate = now.toISOString().slice(0, 16);
     const initialState = {
       TaskForm : newTask
 
