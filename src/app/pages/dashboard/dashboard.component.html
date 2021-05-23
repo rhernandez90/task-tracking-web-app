@@ -8,17 +8,26 @@
 
   <br>
 
-  <div class="card ml-2 mt-2" style="width: 18rem;" *ngFor="let item of projects" [style.background] = "item.backgroundColor">
-    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+  <div class="card ml-2 mt-2 col-md-3" *ngFor="let item of projects">
+
+
     <div class="card-body">
-      <h5 class="card-title" >{{item.name}}</h5>
+      <h5 class="card-title" [style.background]="item.backgroundColor">{{item.name}}</h5>
       <p class="card-text">{{item.description}}</p>
 
 
+      <div> <label width=200>Pending Taks     </label> <span class="fr">{{ item.pendingTasks }} </span> </div>
+      <div> <label width=200>In Progress Taks </label> <span class="fr">{{ item.inprogressTasks }}</span> </div>
+      <div> <label width=200>Done Taks        </label> <span class="fr">{{ item.doneTasks }}</span> </div>
+      <div> <label width=200>Rejected Taks    </label> <span class="fr">{{ item.rejectedTasks }}</span> </div>
+
+
+
+    </div>
+    <div class="card-footer">
       <button class="btn btn-primary" (click)="goToTasks(item.id)">
         Go
       </button>
-
 
     </div>
 
