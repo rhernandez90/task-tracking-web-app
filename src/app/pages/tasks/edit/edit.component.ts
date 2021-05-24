@@ -4,7 +4,7 @@ import { PersonDto } from '../../../Services/Person/Dto/PersonDto';
 import { PersonService } from '../../../Services/Person/person.service';
 import { TaskDto } from '../../../Services/Tasks/Dto/TasksDto';
 import { TaskService } from '../../../Services/Tasks/task.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'ngx-task-edit',
   templateUrl: './edit.component.html',
@@ -46,6 +46,13 @@ export class EditTaskComponent implements OnInit {
   onSubmit(){
     this._taskService.Update(this.TaskForm).subscribe( res => {
       this.bsModalRef.hide();
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Task has been saved',
+        showConfirmButton: false,
+        timer: 7000
+      })
     });
   }
 

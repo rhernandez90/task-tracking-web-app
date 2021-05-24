@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectService } from '../../../Services/Project/project.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'ngx-add-project-modal',
   templateUrl: './add-project-modal.component.html',
@@ -30,6 +30,13 @@ export class AddProjectModalComponent implements OnInit {
 
     this._projectService.Create(this.projectForm).subscribe(res => {
       this.router.navigate(['/pages/project-dashboard']);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Project has been saved',
+        showConfirmButton: false,
+        timer: 7000
+      })
     })
   }
 

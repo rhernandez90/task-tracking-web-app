@@ -4,7 +4,7 @@ import { PersonDto } from '../../../Services/Person/Dto/PersonDto';
 import { PersonService } from '../../../Services/Person/person.service';
 import { TaskDto } from '../../../Services/Tasks/Dto/TasksDto';
 import { TaskService } from '../../../Services/Tasks/task.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'ngx-create',
   templateUrl: './create.component.html',
@@ -41,6 +41,13 @@ export class CreateTaskComponent implements OnInit {
     
     this._taskService.Create(this.TaskForm).subscribe( res => {
       this.bsModalRef.hide();
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Task has been saved',
+        showConfirmButton: false,
+        timer: 7000
+      })
     });
 
   }

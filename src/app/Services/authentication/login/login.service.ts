@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseComponent } from '../../../base/base.component';
+import { RegisterUserDto } from '../Dto/register';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -28,7 +29,7 @@ export class LoginService extends BaseComponent {
     }, httpOptions);
   }
 
-  register(registerUserDto : any): Observable<any> {
+  register(registerUserDto : RegisterUserDto): Observable<any> {
 
     return this.http.post(this.baseUrl + '/users/register', registerUserDto , httpOptions);
   
