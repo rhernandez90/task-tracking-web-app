@@ -48,4 +48,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.menuService.navigateHome();
     return false;
   }
+
+  logout() {
+    this.tokenStorage.signOut();
+  }
 }

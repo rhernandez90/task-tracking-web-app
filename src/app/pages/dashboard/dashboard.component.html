@@ -16,12 +16,12 @@
       <p class="card-text">{{item.description}}</p>
 
 
-      <div> <label width=200>Pending Taks     </label> <span class="fr">{{ item.pendingTasks }} </span> </div>
+      <div> <label width=200>Pending Taks </label> <span class="fr">{{ item.pendingTasks }} </span> </div>
       <div> <label width=200>In Progress Taks </label> <span class="fr">{{ item.inprogressTasks }}</span> </div>
-      <div> <label width=200>Done Taks        </label> <span class="fr">{{ item.doneTasks }}</span> </div>
-      <div> <label width=200>Rejected Taks    </label> <span class="fr">{{ item.rejectedTasks }}</span> </div>
-      <div id="overdueTask" *ngIf="item.overdueTasks>0" > 
-        <label width=200>Overdue Taks</label><span class="fr">{{ item.overdueTasks }}</span> 
+      <div> <label width=200>Done Taks </label> <span class="fr">{{ item.doneTasks }}</span> </div>
+      <div> <label width=200>Rejected Taks </label> <span class="fr">{{ item.rejectedTasks }}</span> </div>
+      <div id="overdueTask" *ngIf="item.overdueTasks>0">
+        <a width=200 style="cursor: pointer;" (click)="openModalWithComponent(item.id)">Overdue Taks</a><span class="fr">{{ item.overdueTasks }}</span>
       </div>
 
 

@@ -9,19 +9,18 @@
 </div>
 
 <div class="header-container">
-  <nb-actions size="small">
 
-    <!-- <nb-action class="control-item">
-      <nb-search type="rotate-layout"></nb-search>
-    </nb-action>
-    <nb-action class="control-item" icon="email-outline"></nb-action>
-    <nb-action class="control-item" icon="bell-outline"></nb-action> -->
-    <nb-action class="user-action" >
-      <nb-user [nbContextMenu]="userMenu">
-               
-               {{user?.firstName + ' ' user?.lastName"}}
-               
+
+  <nb-actions size="small">
+    <nb-action class="user-action">
+      <nb-user [name]="user?.fullName">
       </nb-user>
     </nb-action>
   </nb-actions>
+
+  <span>
+    <i class="fas fa-sign-out-alt" style="font-size:3m" (click)="logout()"></i>
+  </span>
+
+
 </div>

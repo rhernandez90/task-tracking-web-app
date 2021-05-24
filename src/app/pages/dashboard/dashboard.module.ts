@@ -32,6 +32,7 @@ import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
 import { FormsModule } from '@angular/forms';
 import { AddProjectModalComponent } from './add-project-modal/add-project-modal.component';
+import { OverdueTasksComponent } from './overdue-tasks/overdue-tasks.component';
 
 @NgModule({
   imports: [
@@ -68,6 +69,7 @@ import { AddProjectModalComponent } from './add-project-modal/add-project-modal.
     TrafficComponent,
     TrafficChartComponent,
     AddProjectModalComponent,
+    OverdueTasksComponent,
   ],
 })
 export class DashboardModule { }

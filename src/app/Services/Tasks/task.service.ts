@@ -25,6 +25,10 @@ export class TaskService extends BaseComponent {
     return this.http.get(`${this.API_URL}/Task/${id}`);
   }
 
+  GetOverdueTasks( projectId : number): Observable<any> {
+    return this.http.get(`${this.API_URL}/Task/Overdue/${projectId}`);
+  }
+
 
   Create(taskData : TaskDto): Observable<any> {
     taskData.assignedPerson = parseInt(taskData.assignedPerson.toString());

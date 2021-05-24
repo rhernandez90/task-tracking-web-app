@@ -1,9 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { NbThemeService } from '@nebular/theme';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { takeWhile } from 'rxjs/operators' ;
 import { SolarData } from '../../@core/data/solar';
 import { ProjectService } from '../../Services/Project/project.service';
+import { OverdueTasksComponent } from './overdue-tasks/overdue-tasks.component';
 
 interface CardSettings {
   title: string;
@@ -19,10 +21,11 @@ interface CardSettings {
 export class DashboardComponent implements OnDestroy,OnInit {
 
   projects : Array<any> = [];
-
+  bsModalRef: BsModalRef;
   constructor(
     private _projectService : ProjectService,
-    private router : Router
+    private router : Router,
+    private modalService: BsModalService
   ) {
 
 
@@ -52,4 +55,18 @@ export class DashboardComponent implements OnDestroy,OnInit {
   ngOnDestroy() {
     
   }
+
+  openModalWithComponent(projectId : number) {
+
+    const initialState = {
+      projectId : projectId
+
+    };
+
+    this.bsModalRef = this.modalService.show(OverdueTasksComponent, {initialState});
+    this.bsModalRef.onHidden.subscribe( res =>{
+        
+    })
+  }
+  
 }
