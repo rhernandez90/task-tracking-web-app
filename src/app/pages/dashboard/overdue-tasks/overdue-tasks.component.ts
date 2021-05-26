@@ -8,7 +8,7 @@ import { TaskService } from '../../../Services/Tasks/task.service';
   templateUrl: './overdue-tasks.component.html',
   styleUrls: ['./overdue-tasks.component.scss']
 })
-export class OverdueTasksComponent implements OnInit, AfterContentChecked, on {
+export class OverdueTasksComponent implements OnInit, AfterContentChecked {
 
   projectId = 0;
   tasks : Array<TaskDto> = [];
