@@ -14,11 +14,11 @@ export class BaseComponent implements OnInit {
   
   getBaseUrl(): string {
     if (isDevMode()) {
-        return  "http://taskapp-api.azurewebsites.net"//"https://localhost:44308";
+        return  "https://localhost:44308";  // "http://localhost:3000/api"; //appConfig.localBaseUrl;
     }
     else {
         
-        return "http://104.248.112.187:3000/api"; 
+        return "http://taskapp-api.azurewebsites.net"; 
     }
 }
 
